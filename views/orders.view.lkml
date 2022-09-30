@@ -47,7 +47,7 @@ view: orders {
 
   dimension: test {
     type: string
-    sql: sleep 10 ;;
+    sql: sleep(10) ;;
   }
 
   measure: count {
