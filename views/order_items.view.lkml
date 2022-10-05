@@ -69,4 +69,50 @@ view: order_items {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]
   }
+
+# Bug test: Expand tables down render html and value format currently
+  measure: evol_sales_amount_wo_vat_eur{
+    view_label: "2.1 - Supplier Details Measures"
+    group_label: "Indicators in value without VAT in EUROS evolution / delta"
+    label: "Euros"
+    type:number
+    sql: ${TABLE}.sale_price ;;
+
+    html: @{evol_color} ;;
+    value_format_name: eur
+  }
+
+  measure: evol_sales_amount_wo_vat_percent{
+    view_label: "2.1 - Supplier Details Measures"
+    group_label: "Indicators in value without VAT in EUROS evolution / delta"
+    label: "Percent"
+    type:number
+    sql: ${TABLE}.sale_price ;;
+
+    html: @{evol_color} ;;
+    value_format_name: percent_format_1
+  }
+
+  measure: evol_sales_amount_wo_vat_placevalue_small{
+    view_label: "2.1 - Supplier Details Measures"
+    group_label: "Indicators in value without VAT in EUROS evolution / delta"
+    label: "Mutli placevalue"
+    type:number
+    sql: ${TABLE}.sale_price*20 ;;
+
+    html: @{evol_color} ;;
+    value_format: "[>=1000000]\"£\"0.00,,\"M\";[>=1000]\"£\"0.00,\"K\";\"£\"0.00"
+  }
+
+  measure: evol_sales_amount_wo_vat_placevalue_large{
+    view_label: "2.1 - Supplier Details Measures"
+    group_label: "Indicators in value without VAT in EUROS evolution / delta"
+    label: "Large Mutli placevalue"
+    type:number
+    sql: ${TABLE}.sale_price*200000 ;;
+
+    html: @{evol_color} ;;
+    value_format: "[>=1000000]\"$\"0.00,,\"M\";[>=1000]\"$\"0.00,\"K\";\"\"0.00"
+
+  }
 }
