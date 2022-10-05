@@ -11,10 +11,10 @@
 constant: evol_color {
   value : "
   {% if value > 0 %}
-  {{ rendered_value }} <font color= \"green\"> &#8599; </font>
+  {{ rendered_value }} €<font color= \"green\"> &#8599; </font>
   {% elsif value <0 %}
-  {{ rendered_value }} <font color= \"red\"> &#8600; </font>
+  {{ rendered_value }} €<font color= \"red\"> &#8600; </font>
   {% else %}
-  {{ rendered_value }}<font color= \"black\"> &#8674;</font>
+  {{ rendered_value }} €<font color= \"black\"> &#8674;</font>
   {% endif %}"
 }
