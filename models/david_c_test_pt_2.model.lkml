@@ -1,5 +1,5 @@
 # Define the database connection to be used for this model.
-connection: "thelook"
+connection: "kentomine"
 
 # include all the views
 include: "/views/**/*.view"
